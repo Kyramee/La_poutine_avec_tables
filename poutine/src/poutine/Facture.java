@@ -86,11 +86,9 @@ public class Facture {
 
 		for (String table : this.mapKeyTable) {
 			clients = this.clientsKey.get(table);
-			ecrire("Table: " + table);
-
-			for (String client : clients) {
-				ecrire(this.listeTable.get(table).get(client), client);
-			}
+			//"Table: " + table
+			ecrire(table , clients);
+			
 			ecrire("\n");
 		}
 
@@ -124,13 +122,22 @@ public class Facture {
 		}
 	}
 
-	private void ecrire(double prix, String nom) {
+	private void ecrire(String table, ArrayList<String> listeClient) {
+		double prix = 0;
+		String ligneClient = "";
+		DecimalFormat df = new DecimalFormat("0.##");
+		
+		for ( String client : listeClient ) {
+		prix += this.listeTable.get(table).get(client);
+		ligneClient += client + "\n";
+		}
+		
 		double tps = prix * 0.05;
 		double tvq = prix * 0.10;
-		DecimalFormat df = new DecimalFormat("0.##");
-
-		ecrire(nom + " " + df.format(prix) + "$, TPS: " + df.format(tps) + "$ TVQ: " + df.format(tvq)
-		+ "$ Total: " + df.format((prix + tps + tvq)) + "$");
+		
+		ecrire( "Table: " + table + ", Prix: " + df.format(prix) + "$, TPS: " + df.format(tps) + "$ TVQ: " + df.format(tvq)
+		+ "$ Total: " + df.format((prix + tps + tvq)) + "$" );
+		ecrire(ligneClient);
 	}
 		
 	private double calculerCoutPlat(String[] comSplit) {
