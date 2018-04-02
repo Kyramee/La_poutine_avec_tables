@@ -135,8 +135,15 @@ public class Facture {
 		double tps = prix * 0.05;
 		double tvq = prix * 0.10;
 		
-		ecrire( "Table: " + table + ", Prix: " + df.format(prix) + "$, TPS: " + df.format(tps) + "$ TVQ: " + df.format(tvq)
-		+ "$ Total: " + df.format((prix + tps + tvq)) + "$" );
+		if ( prix > 100 || listeClient.size() >= 3 ) {
+			double frais = prix * 0.15;
+			ecrire( "Table: " + table + ", Prix: " + df.format(prix) + "$, Frais: " + df.format( frais ) + "$ TPS: " + df.format(tps)
+			+ "$ TVQ: " + df.format(tvq)
+			+ "$ Total: " + df.format((prix + tps + tvq + frais)) + "$" );
+		} else {
+			ecrire( "Table: " + table + ", Prix: " + df.format(prix) + "$, TPS: " + df.format(tps) + "$ TVQ: " + df.format(tvq)
+			+ "$ Total: " + df.format((prix + tps + tvq)) + "$" );
+		}
 		ecrire(ligneClient);
 	}
 		

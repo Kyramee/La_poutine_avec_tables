@@ -1,0 +1,25 @@
+Bienvenue chez Barette!
+
+
+FACTURE:
+Table: 1, Prix: 10.5$, TPS: 0.53$ TVQ: 1.05$ Total: 12.08$
+Roger
+
+
+
+Table: 4, Prix: 15.75$, TPS: 0.79$ TVQ: 1.58$ Total: 18.11$
+Céline
+
+
+
+Table: 2, Prix: 36.5$, TPS: 1.83$ TVQ: 3.65$ Total: 41.98$
+Céline
+
+
+
+Table: 3, Prix: 26.25$, TPS: 1.31$ TVQ: 2.62$ Total: 30.19$
+Céline
+Steeve
+
+
+
